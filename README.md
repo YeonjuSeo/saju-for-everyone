@@ -105,6 +105,17 @@ nothing about the user's birth input. See `.env.example` for the full setup:
    account email** (Editor).
 4. Set `GOOGLE_SERVICE_ACCOUNT_EMAIL`, `GOOGLE_PRIVATE_KEY`, `SHEET_ID` in Vercel.
 
+**Verify credentials locally before deploying:** put the same three values in a
+local `.env` (git-ignored), then run:
+
+```bash
+npm run test:log   # appends one TEST row to your sheet, with clear error hints
+```
+
+> Use the **exact `client_email` from the JSON** — a Google project's ID often
+> differs from its display name (e.g. `my-app` → `my-app-462310`), and a mismatch
+> causes `invalid_grant: account not found`.
+
 Build a daily-hits chart or a country pivot directly in Google Sheets from columns
 `date` and `country`.
 
