@@ -150,7 +150,7 @@ export default function BirthForm({ onSubmit }: Props) {
               <select value={hour} onChange={(e) => setHour(Number(e.target.value))} className={selectCls}>
                 {Array.from({ length: 24 }, (_, i) => i).map((h) => (
                   <option key={h} value={h}>
-                    {String(h).padStart(2, '0')} · {to12h(h)}
+                    {String(h).padStart(2, '0')}
                   </option>
                 ))}
               </select>
@@ -187,10 +187,4 @@ export default function BirthForm({ onSubmit }: Props) {
       </button>
     </form>
   );
-}
-
-function to12h(h: number): string {
-  const period = h < 12 ? 'AM' : 'PM';
-  const h12 = h % 12 === 0 ? 12 : h % 12;
-  return `${h12} ${period}`;
 }
